@@ -8,7 +8,7 @@ namespace HackerNewsService.Services
     {
         private readonly HttpClient _httpClient;
         private readonly ILogger<HackerNewsService> _logger;
-        private  SemaphoreSlim _concurrentRequests = new SemaphoreSlim(50);
+        private  SemaphoreSlim _concurrentRequests = new SemaphoreSlim(100);
         public HackerNewsService(HttpClient httpClient, ILogger<HackerNewsService> logger) 
         {
             ArgumentNullException.ThrowIfNull(httpClient, nameof(httpClient));
