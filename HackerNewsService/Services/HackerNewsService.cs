@@ -68,7 +68,7 @@ namespace HackerNewsService.Services
             List<Task<T>> newsItemsTasks = new List<Task<T>>();
             List<Task> runningRequests = itemIds.Select(async item =>
             {
-                await _concurrentRequests.WaitAsync().ConfigureAwait(false);
+                await _concurrentRequests.WaitAsync();
                 newsItemsTasks.Add(GetNewsItem<T>(item));
             }).ToList();
 

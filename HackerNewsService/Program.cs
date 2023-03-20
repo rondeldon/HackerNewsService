@@ -53,13 +53,13 @@ app.UseExceptionHandler(errorApp =>
             HackerNewsException  hackerNewsException = (HackerNewsException) exception.Error;
             context.Response.StatusCode = GetHttpStatusCode(hackerNewsException.errorCode);
             NewsErrorResponse errorResponse = new NewsErrorResponse(hackerNewsException.Message, (int)hackerNewsException.errorCode);
-            await context.Response.WriteAsync(JsonConvert.SerializeObject(errorResponse)).ConfigureAwait(false);
+            await context.Response.WriteAsync(JsonConvert.SerializeObject(errorResponse));
         }
         else
         {
             context.Response.StatusCode = 500;
             NewsErrorResponse errorResponse = new NewsErrorResponse("Unexpected error.", 0000);
-            await context.Response.WriteAsync(JsonConvert.SerializeObject(errorResponse)).ConfigureAwait(false);
+            await context.Response.WriteAsync(JsonConvert.SerializeObject(errorResponse));
         }
     });
 });
