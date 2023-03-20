@@ -58,11 +58,11 @@ namespace HackerNewsService.Controllers
         /// <param name="id"></param>
         /// <returns>A list of comments for a news item.</returns>
         // GET api/<HackerNewsController>/5/comments
-        [HttpGet("{id}/comments")]
+        [HttpGet("{parentId}/comments")]
         [ProducesResponseType(typeof(NewsErrorResponse), (int)HttpStatusCode.BadGateway)]
-        public async Task<IEnumerable<NewsItemComment>> GetNewsItemComments(int id)
+        public async Task<IEnumerable<NewsItemComment>> GetNewsItemComments(int parentId)
         {
-            List<NewsItemComment> newsItemComments = await _hackerNewsService.GetNewsItemCommentsAsync(id);
+            List<NewsItemComment> newsItemComments = await _hackerNewsService.GetNewsItemCommentsAsync(parentId);
             return newsItemComments;
         }
     }
