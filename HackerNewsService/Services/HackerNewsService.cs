@@ -17,7 +17,14 @@ namespace HackerNewsService.Services
            _httpClient = httpClient;
             _logger = logger;
         }
-        public async Task<List<NewsStory>> GetNewsStoriesAsync()
+        public async Task<List<NewsStory>> GetNewStoriesAsync()
+        {
+            string response = await _httpClient.GetStringAsync("v0/newstories.json");
+            List<int> storyItems = ConvertTo<List<int>>(response);
+            List<NewsStory> stories = await GetNewsItems<NewsStory>(storyItems, (item) => item.type == "story" && !item.deleted && !item.dead);
+            return stories;
+        }
+        public async Task<List<NewsStory>> GetTopStoriesAsync()
         {
             string response = await _httpClient.GetStringAsync("v0/topstories.json");
             List<int> storyItems = ConvertTo<List<int>>(response);
@@ -25,7 +32,14 @@ namespace HackerNewsService.Services
             return stories;
         }
 
-        public async Task<List<NewsJob>> GetNewsJobsAsync()
+        public async Task<List<NewsStory>> GetBestStoriesAsync()
+        {
+            string response = await _httpClient.GetStringAsync("v0/beststories.json");
+            List<int> storyItems = ConvertTo<List<int>>(response);
+            List<NewsStory> stories = await GetNewsItems<NewsStory>(storyItems, (item) => item.type == "story" && !item.deleted && !item.dead);
+            return stories;
+        }
+        public async Task<List<NewsJob>> GetJobStoriesAsync()
         {
             string response = await _httpClient.GetStringAsync("v0/jobstories.json");
             List<int> jobItems = ConvertTo<List<int>>(response);
@@ -40,20 +54,45 @@ namespace HackerNewsService.Services
             return comments;
         }
 
-        public async Task<List<NewsPoll>> GetNewsPollsAsync()
+        public async Task<List<NewsAsk>> GetAskStoriesAsync()
+        {
+            string response = await _httpClient.GetStringAsync("v0/askstories.json");
+            List<int> jobItems = ConvertTo<List<int>>(response);
+            List<NewsAsk> asks = await GetNewsItems<NewsAsk>(jobItems, (item) => !item.deleted && !item.dead);
+            return asks;
+        }
+
+        public async Task<List<NewsShow>> GetShowStoriesAsync()
+        {
+            string response = await _httpClient.GetStringAsync("v0/showstories.json");
+            List<int> jobItems = ConvertTo<List<int>>(response);
+            List<NewsShow> shows = await GetNewsItems<NewsShow>(jobItems, (item) => !item.deleted && !item.dead);
+            return shows;
+        }
+
+        public async Task<List<NewsPoll>> GetPollStoriesAsync()
         {
             string response = await _httpClient.GetStringAsync("v0/maxitem.json");
 
-            int maxId;
-            List<NewsPoll> polls;
-            if ( int.TryParse(response, out maxId) )
+            int current;
+            List<NewsPoll> polls = new List<NewsPoll>();
+            if ( int.TryParse(response, out current) )
             {
-                List<int> items = new List<int>();
-                for (int x = maxId < 1000 ? maxId : maxId - 1000; x <= maxId; ++x )
+                bool more = true;
+                while (more)
                 {
-                    items.Add(x);
+                    List<int> items = new List<int>();
+                    for (int bottom = current < 5000 ? 1 : current - 5000; current >= bottom; --current)
+                    {
+                        items.Add(current);
+                    }
+                    polls = new List<NewsPoll>();
+                    if (items.Count > 0)
+                        polls = await GetNewsItems<NewsPoll>(items, (item) => item.type == "poll" && !item.deleted && !item.dead);
+
+                    if (polls.Count > 0 || items.Count == 0)
+                        more = false;
                 }
-                polls = await GetNewsItems<NewsPoll>(items, (item) => item.type == "poll" && !item.deleted && !item.dead);
             }
             else
             {
@@ -79,6 +118,7 @@ namespace HackerNewsService.Services
                 newsItems = (await Task.WhenAll(newsItemsTasks)).Where(predicate).ToList();
             }
             catch( Exception ex )
+
             {
                 EventId GetItemErrorEvent = new EventId((int)HackerNewsErrorCode.GetItemError, HackerNewsErrorCode.GetItemError.ToString());
                 newsItems = newsItemsTasks.Where(task => task.IsCompletedSuccessfully).Select(task => task.Result).Where(predicate).ToList();
@@ -111,5 +151,7 @@ namespace HackerNewsService.Services
             T item = string.IsNullOrEmpty(jsonString) ? new T() : JsonConvert.DeserializeObject<T>(jsonString);
             return item;
         }
+
+
     }
 }

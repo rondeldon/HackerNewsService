@@ -63,7 +63,7 @@ namespace HackerNewsServiceUnitTests
             var httpClient = GetHttpClient(CreateOkResponseMessages(GetNewsStories().First().kids, GetNewsStories().First(), GetNewsStories().First(), GetNewsStories().First(), GetNewsStories().First()));
             HNS.HackerNewsService hns = new HNS.HackerNewsService(httpClient, logger.Object);
 
-            var resp = await hns.GetNewsStoriesAsync();
+            var resp = await hns.GetNewStoriesAsync();
 
             Assert.Equal(4, resp.Count);
             Assert.Equal(1, resp.First().id);
@@ -77,7 +77,7 @@ namespace HackerNewsServiceUnitTests
             var httpClient = GetHttpClient(CreateOkResponseMessages(GetNewsStories().First().kids, GetBadNewStories().First(), GetNewsStories().First(), GetBadNewStories().First(), GetNewsStories().First()));
             HNS.HackerNewsService hns = new HNS.HackerNewsService(httpClient, logger.Object);
 
-            var resp = await hns.GetNewsStoriesAsync();
+            var resp = await hns.GetNewStoriesAsync();
 
             Assert.Equal(2, resp.Count);
             Assert.Equal(1, resp.First().id);

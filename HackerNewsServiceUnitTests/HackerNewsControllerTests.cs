@@ -31,11 +31,11 @@ namespace HackerNewsServiceUnitTests
         public async void GetStoriesSuccess()
         {
             var hns = new Mock<HNS.IHackerNewsService>();
-            hns.Setup(x => x.GetNewsStoriesAsync()).ReturnsAsync(GetNewsStories() );
+            hns.Setup(x => x.GetNewStoriesAsync()).ReturnsAsync(GetNewsStories() );
 
             HackerNewsController hnc = new HackerNewsController(hns.Object);
 
-            var stories = await hnc.GetStories();
+            var stories = await hnc.GetNewStories();
 
             Assert.Equal(stories.First().id, GetNewsStories().First().id);
             Assert.Equal(stories.First().type, GetNewsStories().First().type);

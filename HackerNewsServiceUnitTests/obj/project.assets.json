@@ -6893,23 +6893,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ronnie\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\P12908B\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ronnie\\source\\repos\\HackerNewsService\\HackerNewsServiceUnitTests\\HackerNewsServiceUnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\P12908B\\source\\repos\\rondeldon\\HackerNewsService\\HackerNewsServiceUnitTests\\HackerNewsServiceUnitTests.csproj",
       "projectName": "HackerNewsServiceUnitTests",
-      "projectPath": "C:\\Users\\Ronnie\\source\\repos\\HackerNewsService\\HackerNewsServiceUnitTests\\HackerNewsServiceUnitTests.csproj",
-      "packagesPath": "C:\\Users\\Ronnie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ronnie\\source\\repos\\HackerNewsService\\HackerNewsServiceUnitTests\\obj\\",
+      "projectPath": "C:\\Users\\P12908B\\source\\repos\\rondeldon\\HackerNewsService\\HackerNewsServiceUnitTests\\HackerNewsServiceUnitTests.csproj",
+      "packagesPath": "C:\\Users\\P12908B\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\P12908B\\source\\repos\\rondeldon\\HackerNewsService\\HackerNewsServiceUnitTests\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Ronnie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\P12908B\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6923,8 +6919,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Ronnie\\source\\repos\\HackerNewsService\\HackerNewsService\\HackerNewsService.csproj": {
-              "projectPath": "C:\\Users\\Ronnie\\source\\repos\\HackerNewsService\\HackerNewsService\\HackerNewsService.csproj"
+            "C:\\Users\\P12908B\\source\\repos\\rondeldon\\HackerNewsService\\HackerNewsService\\HackerNewsService.csproj": {
+              "projectPath": "C:\\Users\\P12908B\\source\\repos\\rondeldon\\HackerNewsService\\HackerNewsService\\HackerNewsService.csproj"
             }
           }
         }
@@ -6980,7 +6976,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

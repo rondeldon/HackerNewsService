@@ -10,24 +10,47 @@ namespace HackerNewsService.Controllers
     public class HackerNewsController : ControllerBase
     {
         private readonly IHackerNewsService _hackerNewsService; 
-
         public HackerNewsController(IHackerNewsService hackerNewsService)
         {
             _hackerNewsService = hackerNewsService;
         }
-
         /// <summary>
-        /// Returns the latest Hacker News Stories
+        /// Returns the Newest Hacker News Stories
         /// </summary>
         /// <returns>A list of the latest news stories.</returns>
-        [HttpGet("stories")]
+        [HttpGet("newstories")]
         [ProducesResponseType(typeof(IEnumerable<NewsStory>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(NewsErrorResponse), (int)HttpStatusCode.BadGateway)]
-        public async Task<IEnumerable<NewsStory>> GetStories()
+        public async Task<IEnumerable<NewsStory>> GetNewStories()
         {
-            List<NewsStory> newsStories = await _hackerNewsService.GetNewsStoriesAsync();
+            List<NewsStory> newsStories = await _hackerNewsService.GetNewStoriesAsync();
             return newsStories;
         }
+
+        /// <summary>
+        /// Returns the Top Hacker News Stories
+        /// </summary>
+        /// <returns>A list of the latest news stories.</returns>
+        [HttpGet("topstories")]
+        [ProducesResponseType(typeof(IEnumerable<NewsStory>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(NewsErrorResponse), (int)HttpStatusCode.BadGateway)]
+        public async Task<IEnumerable<NewsStory>> GetTopStories()
+        {
+            List<NewsStory> newsStories = await _hackerNewsService.GetTopStoriesAsync();
+            return newsStories;
+        }
+
+        /// <summary>
+        /// Returns the Best Hacker News Stories
+        /// </summary>
+        /// <returns>A list of the latest polls if any are found.</returns>
+        [HttpGet("beststories")]
+        public async Task<IEnumerable<NewsStory>> GetBestStories()
+        {
+            List<NewsStory> bestStories = await _hackerNewsService.GetBestStoriesAsync();
+            return bestStories;
+        }
+
         /// <summary>
         /// Returns the latest Hacker Job Stories
         /// </summary>
@@ -37,19 +60,42 @@ namespace HackerNewsService.Controllers
         [ProducesResponseType(typeof(NewsErrorResponse), (int)HttpStatusCode.BadGateway)]
         public async Task<IEnumerable<NewsJob>> GetJobs()
         {
-            List<NewsJob> newsJobs = await _hackerNewsService.GetNewsJobsAsync();
-            return newsJobs;
+            List<NewsJob> jobStories = await _hackerNewsService.GetJobStoriesAsync();
+            return jobStories;
         }
 
         /// <summary>
         /// Returns the latest Hacker News Polls
         /// </summary>
         /// <returns>A list of the latest polls if any are found.</returns>
-        [HttpGet("polls")]
-        public async Task<IEnumerable<NewsPoll>> GetPolls()
+        //[HttpGet("polls")]
+        //public async Task<IEnumerable<NewsPoll>> GetPolls()
+        //{
+        //    List<NewsPoll> pollStories = await _hackerNewsService.GetPollStoriesAsync();
+        //    return pollStories;
+        //}
+
+
+        /// <summary>
+        /// Returns the latest Hacker News Asks
+        /// </summary>
+        /// <returns>A list of the latest polls if any are found.</returns>
+        [HttpGet("asks")]
+        public async Task<IEnumerable<NewsAsk>> GetAsks()
         {
-            List<NewsPoll> newsPolls = await _hackerNewsService.GetNewsPollsAsync();
-            return newsPolls;
+            List<NewsAsk> askStories = await _hackerNewsService.GetAskStoriesAsync();
+            return askStories;
+        }
+
+        /// <summary>
+        /// Returns the latest Hacker News Shows
+        /// </summary>
+        /// <returns>A list of the latest polls if any are found.</returns>
+        [HttpGet("shows")]
+        public async Task<IEnumerable<NewsShow>> GetShows()
+        {
+            List<NewsShow> showStories = await _hackerNewsService.GetShowStoriesAsync();
+            return showStories;
         }
 
         /// <summary>
