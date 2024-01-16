@@ -982,11 +982,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\P12908B\\source\\repos\\rondeldon\\HackerNewsService\\HackerNewsService\\HackerNewsService.csproj",
+      "projectUniqueName": "C:\\Users\\P12908B\\Source\\Repos\\HackerNewsService\\HackerNewsService\\HackerNewsService.csproj",
       "projectName": "HackerNewsService",
-      "projectPath": "C:\\Users\\P12908B\\source\\repos\\rondeldon\\HackerNewsService\\HackerNewsService\\HackerNewsService.csproj",
+      "projectPath": "C:\\Users\\P12908B\\Source\\Repos\\HackerNewsService\\HackerNewsService\\HackerNewsService.csproj",
       "packagesPath": "C:\\Users\\P12908B\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\P12908B\\source\\repos\\rondeldon\\HackerNewsService\\HackerNewsService\\obj\\",
+      "outputPath": "C:\\Users\\P12908B\\Source\\Repos\\HackerNewsService\\HackerNewsService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\P12908B\\AppData\\Roaming\\NuGet\\NuGet.Config",

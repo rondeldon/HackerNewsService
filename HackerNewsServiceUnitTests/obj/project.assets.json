@@ -6898,11 +6898,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\P12908B\\source\\repos\\rondeldon\\HackerNewsService\\HackerNewsServiceUnitTests\\HackerNewsServiceUnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\P12908B\\source\\repos\\HackerNewsService\\HackerNewsServiceUnitTests\\HackerNewsServiceUnitTests.csproj",
       "projectName": "HackerNewsServiceUnitTests",
-      "projectPath": "C:\\Users\\P12908B\\source\\repos\\rondeldon\\HackerNewsService\\HackerNewsServiceUnitTests\\HackerNewsServiceUnitTests.csproj",
+      "projectPath": "C:\\Users\\P12908B\\source\\repos\\HackerNewsService\\HackerNewsServiceUnitTests\\HackerNewsServiceUnitTests.csproj",
       "packagesPath": "C:\\Users\\P12908B\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\P12908B\\source\\repos\\rondeldon\\HackerNewsService\\HackerNewsServiceUnitTests\\obj\\",
+      "outputPath": "C:\\Users\\P12908B\\Source\\Repos\\HackerNewsService\\HackerNewsServiceUnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\P12908B\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6919,8 +6919,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\P12908B\\source\\repos\\rondeldon\\HackerNewsService\\HackerNewsService\\HackerNewsService.csproj": {
-              "projectPath": "C:\\Users\\P12908B\\source\\repos\\rondeldon\\HackerNewsService\\HackerNewsService\\HackerNewsService.csproj"
+            "C:\\Users\\P12908B\\source\\repos\\HackerNewsService\\HackerNewsService\\HackerNewsService.csproj": {
+              "projectPath": "C:\\Users\\P12908B\\source\\repos\\HackerNewsService\\HackerNewsService\\HackerNewsService.csproj"
             }
           }
         }
