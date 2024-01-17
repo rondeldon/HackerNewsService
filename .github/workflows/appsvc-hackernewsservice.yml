@@ -12,12 +12,12 @@ env:
   AZURE_APIM_API_ID: api-hackernewsservice
   AZURE_APIM_APPSERVICEURL: https://appsvc-hackernewsservice.azurewebsites.net
   SWASHBUCLE_ASPNET_CORE_CLI_PACKAGE_VERSION: 6.5.0
-  SWASHBUCKLE_DOTNET_CORE_VERSION: 8.0.1
+  SWASHBUCKLE_DOTNET_CORE_VERSION: 8.0
   API_IMPORT_SPECIFICATION_PATH: HackerNewsService/publish/swagger.json
   API_IMPORT_DLL: HackerNewsService/bin/Release/net8.0/HackerNewsService.dll
   API_IMPORT_VERSION: v1
   CONFIGURATION: Release
-  DOTNET_CORE_VERSION: 8.0.1
+  DOTNET_CORE_VERSION: 8.0
   WORKING_DIRECTORY: HackerNewsService
 jobs:
   build:
@@ -54,6 +54,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
     - name: Download artifact from build job
       uses: actions/download-artifact@v3
       with:
