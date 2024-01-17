@@ -64,10 +64,6 @@ namespace HackerNewsService.Controllers
             return jobStories;
         }
 
-        /// <summary>
-        /// Returns the latest Hacker News Polls
-        /// </summary>
-        /// <returns>A list of the latest polls if any are found.</returns>
         //[HttpGet("polls")]
         //public async Task<IEnumerable<NewsPoll>> GetPolls()
         //{
@@ -101,7 +97,7 @@ namespace HackerNewsService.Controllers
         /// <summary>
         /// Returns comments for an item(i.e. Stories, jobs, Polls )
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="parentId"></param>
         /// <returns>A list of comments for a news item.</returns>
         // GET api/<HackerNewsController>/5/comments
         [HttpGet("{parentId}/comments")]
