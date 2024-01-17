@@ -68,8 +68,6 @@ jobs:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
         publish-profile: ${{ secrets.appsvc_hackernewsservice_C413 }}
-      env:
-        DOTNET_RUNTIME_ID: ubuntu.23.10-x64
     - name: Azure Login
       uses: azure/login@v1
       with:
