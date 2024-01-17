@@ -27,7 +27,20 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "HackerNews Service",
+        Description = "A high performing service to deliver up HackerNews items.",
+        Contact = new OpenApiContact
+        {
+            Name = "Developer",
+            Url = new Uri("https://github.com/rondeldon/")
+        }
+    });
+});
 string baseUrl = builder.Configuration.GetValue("BaseUrl", "https://hacker-news.firebaseio.com");
 builder.Services.AddHttpClient<IHackerNewsService, HackerNewsService.Services.HackerNewsService>(client =>
                 {
