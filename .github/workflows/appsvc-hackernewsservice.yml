@@ -11,7 +11,7 @@ env:
   AZURE_APIM_SERVICENAME: hackernewsserviceapims
   AZURE_APIM_API_ID: api-hackernewsservice
   AZURE_APIM_APPSERVICEURL: https://appsvc-hackernewsservice.azurewebsites.net
-  SWASHBUCLE_ASPNET_CORE_CLI_PACKAGE_VERSION: 6.5.0
+  SWASHBUCLE_ASPNET_CORE_CLI_PACKAGE_VERSION: 6.5.x
   SWASHBUCKLE_DOTNET_CORE_VERSION: 6.5.x
   API_IMPORT_SPECIFICATION_PATH: HackerNewsService/publish/swagger.json
   API_IMPORT_DLL: HackerNewsService/bin/Release/net8.0/HackerNewsService.dll
@@ -25,11 +25,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v8
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
     - name: Setup SwashBuckle .NET Core
-      uses: actions/setup-dotnet@v8
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.SWASHBUCKLE_DOTNET_CORE_VERSION }}
     - name: Restore
