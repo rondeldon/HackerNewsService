@@ -40,6 +40,9 @@ builder.Services.AddSwaggerGen(options =>
             Url = new Uri("https://github.com/rondeldon/")
         }
     });
+    options.EnableAnnotations();
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 string baseUrl = builder.Configuration.GetValue("BaseUrl", "https://hacker-news.firebaseio.com");
 builder.Services.AddHttpClient<IHackerNewsService, HackerNewsService.Services.HackerNewsService>(client =>
