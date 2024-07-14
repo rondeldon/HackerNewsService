@@ -20,7 +20,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins, policy =>
                       {
-                          policy.WithOrigins("*")
+                          policy.WithOrigins("https://ambitious-desert-0ed06800f.4.azurestaticapps.net", "http://localhost:3000")
                                 .AllowAnyMethod()
                                 .AllowAnyHeader()
                                 .AllowCredentials();
