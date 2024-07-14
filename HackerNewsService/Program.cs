@@ -18,10 +18,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-                      policy =>
+    options.AddPolicy(name: MyAllowSpecificOrigins, policy =>
                       {
-                          policy.WithOrigins("*");
+                          policy.WithOrigins("*")
+                                .AllowAnyMethod()
+                                .AllowAnyHeader()
+                                .AllowCredentials();
                       });
 });
 builder.Services.AddControllers();
